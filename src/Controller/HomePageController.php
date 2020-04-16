@@ -10,7 +10,7 @@ class HomePageController extends AbstractController
     /**
      * @Route("/")
      */
-    public function renderHomePage()
+    public function renderClientHomePage()
     {
         return $this->render('client/index.html.twig');
     }
