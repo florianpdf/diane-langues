@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ServicesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DomainRepository")
  */
-class Services
+class Domain
 {
     /**
      * @ORM\Id()
@@ -25,11 +25,6 @@ class Services
      * @ORM\Column(type="string", length=255)
      */
     private $description;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $price;
 
     public function getId(): ?int
     {
@@ -56,18 +51,6 @@ class Services
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getPrice(): ?string
-    {
-        return $this->price;
-    }
-
-    public function setPrice(string $price): self
-    {
-        $this->price = $price;
 
         return $this;
     }
