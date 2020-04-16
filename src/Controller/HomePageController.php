@@ -5,13 +5,33 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use App\Repository\DomainRepository;
+use App\Repository\ReferenceRepository;
+use App\Repository\ServiceRepository;
+use App\Repository\ContactRepository;
+
 class HomePageController extends AbstractController
 {
     /**
      * @Route("/")
      */
-    public function renderClientHomePage()
+    public function renderClientHomePage(
+        DomainRepository $domainRepository, 
+        ReferenceRepository $referenceRepository,
+        ServiceRepository $serviceRepository,
+        ContactRepository $contactRepository
+        )
     {
-        return $this->render('client/index.html.twig');
+        $domains = $domainRepository->findAll();
+        $references = $referenceRepository->findAll();
+        $services = $serviceRepository->findAll();
+        $contact = $contactRepository->findAll();
+
+        return $this->render('client/index.html.twig', array(
+            'domains' => $domains,
+            'references' => $references,
+            'services' => $services,
+            'contact' => $contact,
+        ));
     }
 }
