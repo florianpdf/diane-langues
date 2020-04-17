@@ -9,7 +9,8 @@
 		</div>
 		<div class="row">
 
-			{% for i in 1..5 %}
+            {% set i = 0 %}
+			{% for portFolio in portFolios %}
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ i }}">
                         <div class="portfolio-hover">
@@ -17,13 +18,52 @@
                                 <i class="fas fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('build/images/portfolio/0') ~ i ~ '-thumbnail.jpg' }}" alt="">
+                        <img class="img-fluid" src="{{ vich_uploader_asset(portFolio, 'imageFile') }}" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Threads</h4>
-                        <p class="text-muted">Illustration</p>
+                        <h4>{{ portFolio.projectName }}</h4>
                     </div>
-                </div>				
+                </div>
+                <!-- Modal {{ i }} -->
+                <div class="portfolio-modal modal fade" id="portfolioModal{{ i }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="close-modal" data-dismiss="modal">
+                                <div class="lr">
+                                    <div class="rl"></div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div
+                                            class="modal-body">
+                                            <!-- Project Details Go Here -->
+                                            <h2 class="text-uppercase">{{ portFolio.projectName }}</h2>
+                                            <img class="img-fluid d-block mx-auto" src="{{ vich_uploader_asset(portFolio, 'imageFile') }}" alt="">
+                                            <p>{{ portFolio.description }}</p>
+                                            <ul class="list-inline">
+                                                {% if portFolio.date %}
+                                                <li>{{ "Date: " ~ portFolio.date|date("M Y") }}</li>
+                                                {% endif %}
+                                                {% if portFolio.client %}
+                                                <li>{{ "Client: " ~ portFolio.client }}</li>
+                                                {% endif %}
+                                                {% if portFolio.category %}
+                                                <li>{{ "Category: " ~ portFolio.category }}</li>
+                                                {% endif %}
+                                            </ul>
+                                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                                <i class=""></i>
+                                                Close Project</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+                {% set i = i + 1 %}		
 			{% endfor %}
 		</div>
 	</div>

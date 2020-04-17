@@ -6,6 +6,32 @@ easy_admin:
     entities:
         Contact:
             class: App\Entity\Contact
+        PortFolio:
+            class: App\Entity\PortFolio
+            list:
+                fields:
+                    - projectName
+                    - description
+                    - { property: "date", type: "date"}
+                    - client
+                    - category
+                    - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
+            show:
+                fields:
+                    - projectName
+                    - description
+                    - { property: "date", type: "date"}
+                    - client
+                    - category
+                    - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
+            form:
+                fields:
+                    - projectName
+                    - description
+                    - { property: "date", type: "date"}
+                    - client
+                    - category
+                    - { property: 'imageFile', type: 'vich_image' }
         Domain:
             class: App\Entity\Domain
             list:

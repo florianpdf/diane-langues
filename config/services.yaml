@@ -6,6 +6,7 @@
 parameters:
     app.path.domain_images: /uploads/images/domains
     app.path.service_images: /uploads/images/services
+    app.path.portFolio_images: /uploads/images/portFolio
 
 services:
     # default configuration for services in *this* file

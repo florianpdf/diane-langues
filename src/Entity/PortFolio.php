@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\DomainRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PortFolioRepository")
  * @Vich\Uploadable
  */
-class Domain
+class PortFolio
 {
     /**
      * @ORM\Id()
@@ -22,12 +22,27 @@ class Domain
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $type;
+    private $projectName;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $client;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -52,14 +67,14 @@ class Domain
         return $this->id;
     }
 
-    public function getType(): ?string
+    public function getProjectName(): ?string
     {
-        return $this->type;
+        return $this->projectName;
     }
 
-    public function setType(string $type): self
+    public function setProjectName(string $projectName): self
     {
-        $this->type = $type;
+        $this->projectName = $projectName;
 
         return $this;
     }
@@ -72,6 +87,42 @@ class Domain
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getClient(): ?string
+    {
+        return $this->client;
+    }
+
+    public function setClient(?string $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
