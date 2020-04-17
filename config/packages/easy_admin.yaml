@@ -8,7 +8,40 @@ easy_admin:
             class: App\Entity\Contact
         Domain:
             class: App\Entity\Domain
+            list:
+                fields:
+                    - type
+                    - description
+                    - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
+            show:
+                fields:
+                    - type
+                    - description
+                    - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
+            form:
+                fields:
+                    - type
+                    - description
+                    - { property: 'imageFile', type: 'vich_image' }
         Reference:
             class: App\Entity\Reference
         Service:
             class: App\Entity\Service
+            list:
+                fields:
+                    - type
+                    - description
+                    - price
+                    - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
+            show:
+                fields:
+                    - type
+                    - description
+                    - price
+                    - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
+            form:
+                fields:
+                    - type
+                    - description
+                    - price
+                    - { property: 'imageFile', type: 'vich_image' }
