@@ -10,6 +10,7 @@ use App\Repository\ReferenceRepository;
 use App\Repository\ServiceRepository;
 use App\Repository\ContactRepository;
 use App\Repository\PortFolioRepository;
+use App\Repository\AboutRepository;
 
 class HomePageController extends AbstractController
 {
@@ -21,7 +22,8 @@ class HomePageController extends AbstractController
         ReferenceRepository $referenceRepository,
         ServiceRepository $serviceRepository,
         ContactRepository $contactRepository,
-        PortFolioRepository $portFolioRepository
+        PortFolioRepository $portFolioRepository,
+        AboutRepository $aboutReposiroty
         )
     {
         $domains = $domainRepository->findAll();
@@ -29,13 +31,15 @@ class HomePageController extends AbstractController
         $services = $serviceRepository->findAll();
         $contact = $contactRepository->findAll();
         $portFolios = $portFolioRepository->findAll();
+        $abouts = $aboutReposiroty->findAll();
 
         return $this->render('client/index.html.twig', array(
             'domains' => $domains,
             'references' => $references,
             'services' => $services,
             'contact' => $contact,
-            'portFolios' => $portFolios
+            'portFolios' => $portFolios,
+            'abouts' => $abouts
         ));
     }
 }

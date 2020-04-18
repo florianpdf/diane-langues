@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\DomainRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AboutRepository")
  * @Vich\Uploadable
  */
-class Domain
+class About
 {
     /**
      * @ORM\Id()
@@ -20,12 +20,17 @@ class Domain
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=15)
      */
-    private $type;
+    private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=25)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="string", length=215)
      */
     private $description;
 
@@ -36,7 +41,7 @@ class Domain
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="domain_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="about_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -52,14 +57,26 @@ class Domain
         return $this->id;
     }
 
-    public function getType(): ?string
+    public function getDate(): ?string
     {
-        return $this->type;
+        return $this->date;
     }
 
-    public function setType(string $type): self
+    public function setDate(string $date): self
     {
-        $this->type = $type;
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

@@ -20,7 +20,7 @@ class PortFolio
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=25)
      */
     private $projectName;
 
@@ -51,7 +51,7 @@ class PortFolio
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="domain_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="portFolio_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;

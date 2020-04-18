@@ -15,7 +15,7 @@ easy_admin:
                     - { property: "date", type: "date"}
                     - client
                     - category
-                    - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.portFolio_images%' }
             show:
                 fields:
                     - projectName
@@ -23,7 +23,7 @@ easy_admin:
                     - { property: "date", type: "date"}
                     - client
                     - category
-                    - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.portFolio_images%' }
             form:
                 fields:
                     - projectName
@@ -70,4 +70,24 @@ easy_admin:
                     - type
                     - description
                     - price
+                    - { property: 'imageFile', type: 'vich_image' }
+        About:
+            class: App\Entity\About
+            list:
+                fields:
+                    - date
+                    - title
+                    - description
+                    - { property: 'image', type: 'image', base_path: '%app.path.about_images%' }
+            show:
+                fields:
+                    - date
+                    - title
+                    - description
+                    - { property: 'image', type: 'image', base_path: '%app.path.about_images%' }
+            form:
+                fields:
+                    - date
+                    - title
+                    - description
                     - { property: 'imageFile', type: 'vich_image' }

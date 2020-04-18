@@ -23,3 +23,6 @@ yarn-error.log
 
 ### VSCode
 .vscode
+
+### Specifix content for website
+/public/uploads
