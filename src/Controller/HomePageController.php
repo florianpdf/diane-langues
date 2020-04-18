@@ -37,7 +37,7 @@ class HomePageController extends AbstractController
             'domains' => $domains,
             'references' => $references,
             'services' => $services,
-            'contact' => $contact,
+            'contact' => $contact[0],
             'portFolios' => $portFolios,
             'abouts' => $abouts
         ));

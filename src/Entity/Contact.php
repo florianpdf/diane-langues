@@ -36,6 +36,21 @@ class Contact
      */
     private $phoneNumber;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $twitterLink;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $facebookLink;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $linkedinLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +100,42 @@ class Contact
     public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getTwitterLink(): ?string
+    {
+        return $this->twitterLink;
+    }
+
+    public function setTwitterLink(?string $twitterLink): self
+    {
+        $this->twitterLink = $twitterLink;
+
+        return $this;
+    }
+
+    public function getFacebookLink(): ?string
+    {
+        return $this->facebookLink;
+    }
+
+    public function setFacebookLink(?string $facebookLink): self
+    {
+        $this->facebookLink = $facebookLink;
+
+        return $this;
+    }
+
+    public function getLinkedinLink(): ?string
+    {
+        return $this->linkedinLink;
+    }
+
+    public function setLinkedinLink(string $linkedinLink): self
+    {
+        $this->linkedinLink = $linkedinLink;
 
         return $this;
     }

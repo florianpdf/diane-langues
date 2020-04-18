@@ -25,4 +25,4 @@ yarn-error.log
 .vscode
 
 ### Specifix content for website
-/public/uploads
+/public/uploads/*
