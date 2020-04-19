@@ -1,10 +1,13 @@
-<!-- Team -->
+<!-- Domain -->
+
+{% trans_default_domain 'app' %}
+
 <section class="page-section" id="domains">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">Domaines</h2>
-				<h3 class="section-subheading text-muted">Voici les domaines dans lesquels je peux vous aider</h3>
+				<h2 class="section-heading text-uppercase">{{ 'domain.title'|trans }}</h2>
+				<h3 class="section-subheading text-muted">{{ 'domain.description'|trans }}</h3>
 			</div>
 		</div>
 		<div class="row">
@@ -20,7 +23,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8 mx-auto text-center">
-				<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+				<p class="large text-muted">{{ 'domain.conclusion'|trans }}</p>
 			</div>
 		</div>
 	</div>

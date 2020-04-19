@@ -15,7 +15,7 @@ use App\Repository\AboutRepository;
 class HomePageController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/{_locale}", name="homepage", requirements={"_locale":"en|fr|de|es"})
      */
     public function renderClientHomePage(
         DomainRepository $domainRepository, 
