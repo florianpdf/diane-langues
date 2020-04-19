@@ -8,12 +8,19 @@ parameters:
     app.path.service_images: /uploads/images/services
     app.path.portFolio_images: /uploads/images/portFolio
     app.path.about_images: /uploads/images/about
+    default_locale: fr
+    app_locales: en|fr|de|es
 
 services:
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+        # Use to wire them as parameters in our controllers.
+        # bind:
+        #     $locales: '%app_locales%'
+        #     $defaultLocale: '%default_locale%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

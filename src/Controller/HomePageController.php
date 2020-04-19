@@ -17,7 +17,11 @@ use App\Entity\About;
 class HomePageController extends AbstractController
 {
     /**
-     * @Route("/{_locale}", name="homepage", requirements={"_locale":"en|fr|de|es"})
+     * @Route("/{_locale}", 
+     *      name="homepage", 
+     *      requirements={"_locale":"%app_locales%"},
+     *      defaults={"_locale":"%default_locale%"}
+     * )
      */
     public function renderClientHomePage(
         DomainRepository $domainRepository, 
@@ -35,6 +39,10 @@ class HomePageController extends AbstractController
         $abouts = $aboutReposiroty->findAll();
         $portFolios = $portFolioRepository->findAll();
 
+        $appLocales = array();
+        foreach (explode('|', $this->getParameter('app_locales')) as $locale) {
+            $appLocales[$locale] = $locale;
+        }
 
         return $this->render('client/index.html.twig', array(
             'domains' => $domains,
@@ -42,7 +50,8 @@ class HomePageController extends AbstractController
             'services' => $services,
             'contact' => $contact[0],
             'portFolios' => $portFolios,
-            'abouts' => $abouts
+            'abouts' => $abouts,
+            'appLocales' => $appLocales
         ));
     }
 }
