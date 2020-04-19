@@ -1,0 +1,28 @@
+nav.menu: Menu
+nav.service: Service
+nav.domains: Domains
+nav.portFolio: PortFolio
+nav.about: About
+nav.Contact: Contact
+portfolio.title: 'My Projects'
+portfolio.closeModal: Close
+contact.title: 'Contact me'
+contact.description: 'Present your project to me, I''ll take care of it.'
+contact.form.placeholder.name: 'Your name'
+contact.form.placeholder.email: 'Your email'
+contact.form.placeholder.phoneNumber: 'Your phone number'
+contact.form.placeholder.message: 'Your need, with the maximum amount of information.'
+contact.form.sendButton: Send
+about.title: About
+about.description: 'My journey in a few lines'
+about.join.firstLine: 'Be a part'
+about.join.secondLine: 'Of your'
+about.join.thirdLine: History
+domain.title: Domains
+domain.description: 'Areas where I can help you.'
+domain.conclusion: 'If the subject is not listed, no problem, contact me, we''ll analyze your need'
+service.title: Services
+service.description: 'What I can do for you.'
+nav.contact: __nav.contact
+app.home.webstiteDescription: __app.home.webstiteDescription
+app.home.siteTitle: __app.home.siteTitle

@@ -3,6 +3,10 @@ easy_admin:
     user:
         display_name: true
         display_avatar: false
+    design:
+        form_theme:
+            - '@EasyAdmin/form/bootstrap_4.html.twig'
+            - '@A2lixTranslationForm/bootstrap_4_layout.html.twig'
     entities:
         Contact:
             class: App\Entity\Contact
@@ -27,10 +31,9 @@ easy_admin:
             form:
                 fields:
                     - projectName
-                    - description
                     - { property: "date", type: "date"}
                     - client
-                    - category
+                    - { property: 'translations', label: false, type: A2lix\TranslationFormBundle\Form\Type\TranslationsType }
                     - { property: 'imageFile', type: 'vich_image' }
         Domain:
             class: App\Entity\Domain
@@ -46,8 +49,7 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.domain_images%' }
             form:
                 fields:
-                    - type
-                    - description
+                    - { property: 'translations', label: false, type: A2lix\TranslationFormBundle\Form\Type\TranslationsType }
                     - { property: 'imageFile', type: 'vich_image' }
         Reference:
             class: App\Entity\Reference
@@ -67,9 +69,7 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.service_images%' }
             form:
                 fields:
-                    - type
-                    - description
-                    - price
+                    - { property: 'translations', label: false, type: A2lix\TranslationFormBundle\Form\Type\TranslationsType }
                     - { property: 'imageFile', type: 'vich_image' }
         About:
             class: App\Entity\About
@@ -87,7 +87,6 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.about_images%' }
             form:
                 fields:
+                    - { property: 'translations', label: false, type: A2lix\TranslationFormBundle\Form\Type\TranslationsType }
                     - date
-                    - title
-                    - description
                     - { property: 'imageFile', type: 'vich_image' }

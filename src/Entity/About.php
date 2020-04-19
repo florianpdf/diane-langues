@@ -6,12 +6,34 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+// For translation
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use ORMBehaviors\Translatable\Translatable;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AboutRepository")
  * @Vich\Uploadable
  */
-class About
+class About implements TranslatableInterface
 {
+    // For translation
+    use TranslatableTrait;
+
+    public function __call($method, $arguments)
+    {
+        $method = ('get' === substr($method, 0, 3) || 'set' === substr($method, 0, 3)) ? $method : 'get'. ucfirst($method);
+
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
+    public function __get($name)
+    {
+        $method = 'get'. ucfirst($name);
+        $arguments = [];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,16 +45,6 @@ class About
      * @ORM\Column(type="string", length=15)
      */
     private $date;
-
-    /**
-     * @ORM\Column(type="string", length=25)
-     */
-    private $title;
-
-    /**
-     * @ORM\Column(type="string", length=215)
-     */
-    private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -65,30 +77,6 @@ class About
     public function setDate(string $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
 
         return $this;
     }

@@ -11,6 +11,8 @@ use App\Repository\ServiceRepository;
 use App\Repository\ContactRepository;
 use App\Repository\PortFolioRepository;
 use App\Repository\AboutRepository;
+use App\Entity\About;
+
 
 class HomePageController extends AbstractController
 {
@@ -30,8 +32,9 @@ class HomePageController extends AbstractController
         $references = $referenceRepository->findAll();
         $services = $serviceRepository->findAll();
         $contact = $contactRepository->findAll();
-        $portFolios = $portFolioRepository->findAll();
         $abouts = $aboutReposiroty->findAll();
+        $portFolios = $portFolioRepository->findAll();
+
 
         return $this->render('client/index.html.twig', array(
             'domains' => $domains,

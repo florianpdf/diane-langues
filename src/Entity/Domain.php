@@ -6,28 +6,40 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+// For translation
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use ORMBehaviors\Translatable\Translatable;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DomainRepository")
  * @Vich\Uploadable
  */
-class Domain
+class Domain implements TranslatableInterface
 {
+    // For translation
+    use TranslatableTrait;
+
+    public function __call($method, $arguments)
+    {
+        $method = ('get' === substr($method, 0, 3) || 'set' === substr($method, 0, 3)) ? $method : 'get'. ucfirst($method);
+
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
+    public function __get($name)
+    {
+        $method = 'get'. ucfirst($name);
+        $arguments = [];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
-    private $type;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,30 +62,6 @@ class Domain
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
     }
 
     public function setImageFile(File $image = null)

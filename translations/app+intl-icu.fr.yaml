@@ -1,0 +1,27 @@
+nav.menu: Menu
+nav.service: Service
+nav.domains: Domaines
+nav.portFolio: Port-folio
+nav.about: 'A propos'
+nav.contact: Contact
+portfolio.title: 'Mes projets'
+portfolio.closeModal: Fermer
+contact.title: 'Me contacter'
+contact.description: 'Présentez moi votre projet, je m''en occupe'
+contact.form.placeholder.name: 'Votre nom'
+contact.form.placeholder.email: 'Votre email'
+contact.form.placeholder.phoneNumber: 'Votre numéro de téléphone'
+contact.form.placeholder.message: 'Votre besoin, avec le maximum d''information'
+contact.form.sendButton: Envoyer
+about.title: 'A propos'
+about.description: 'Mon parcours en quelques ligne'
+about.join.firstLine: 'Faire partie'
+about.join.secondLine: 'De votre'
+about.join.thirdLine: Histoire
+domain.title: Domaines
+domain.description: 'Les domaines sur lesquels je peux vous aider'
+domain.conclusion: 'Si le sujet n''est pas listé, pas de problème, contactez moi, on analyse votre besoin'
+service.title: Services
+service.description: 'Ce que je peux faire pour vous'
+app.home.webstiteDescription: __app.home.webstiteDescription
+app.home.siteTitle: __app.home.siteTitle

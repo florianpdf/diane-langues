@@ -6,12 +6,34 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+// For translation
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use ORMBehaviors\Translatable\Translatable;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PortFolioRepository")
  * @Vich\Uploadable
  */
-class PortFolio
+class PortFolio implements TranslatableInterface
 {
+    // For translation
+    use TranslatableTrait;
+
+    public function __call($method, $arguments)
+    {
+        $method = ('get' === substr($method, 0, 3) || 'set' === substr($method, 0, 3)) ? $method : 'get'. ucfirst($method);
+
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
+    public function __get($name)
+    {
+        $method = 'get'. ucfirst($name);
+        $arguments = [];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -25,11 +47,6 @@ class PortFolio
     private $projectName;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
-
-    /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $date;
@@ -38,11 +55,6 @@ class PortFolio
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $client;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -79,18 +91,6 @@ class PortFolio
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -111,18 +111,6 @@ class PortFolio
     public function setClient(?string $client): self
     {
         $this->client = $client;
-
-        return $this;
-    }
-
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
