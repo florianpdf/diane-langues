@@ -10,14 +10,14 @@ class ContactFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $contact = new Contact();
-        $contact->setName("Grandjean");
-        $contact->setFirstname("Florian");
-        $contact->setPhoneNumber("0669972880");
-        $contact->setEmail("florian.pdf@gmail");
+        // $contact = new Contact();
+        // $contact->setName("Grandjean");
+        // $contact->setFirstname("Florian");
+        // $contact->setPhoneNumber("0669972880");
+        // $contact->setEmail("florian.pdf@gmail");
 
-        $manager->persist($contact);
+        // $manager->persist($contact);
 
-        $manager->flush();
+        // $manager->flush();
     }
 }
