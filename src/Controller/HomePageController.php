@@ -39,7 +39,7 @@ class HomePageController extends AbstractController
         $abouts = $aboutReposiroty->findAll();
         $portFolios = $portFolioRepository->findAll();
 
-        if ($contacts[0]){
+        if (isset($contacts[0])){
             $contacts = $contacts[0];
         }
 
@@ -52,7 +52,7 @@ class HomePageController extends AbstractController
             'domains' => $domains,
             'references' => $references,
             'services' => $services,
-            'contact' => $contact[0],
+            'contact' => $contacts,
             'portFolios' => $portFolios,
             'abouts' => $abouts,
             'appLocales' => $appLocales
