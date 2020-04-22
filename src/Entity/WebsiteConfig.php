@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\WebsiteConfigRepository")
  */
-class Contact
+class WebsiteConfig
 {
     /**
      * @ORM\Id()
@@ -50,6 +50,16 @@ class Contact
      * @ORM\Column(type="string", length=255)
      */
     private $linkedinLink;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $emailPassword;
+
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $webSiteTitle;
 
     public function getId(): ?int
     {
@@ -136,6 +146,30 @@ class Contact
     public function setLinkedinLink(string $linkedinLink): self
     {
         $this->linkedinLink = $linkedinLink;
+
+        return $this;
+    }
+
+    public function getEmailPassword(): ?string
+    {
+        return $this->emailPassword;
+    }
+
+    public function setEmailPassword(?string $emailPassword): self
+    {
+        $this->emailPassword = $emailPassword;
+
+        return $this;
+    }
+
+    public function getWebSiteTitle(): ?string
+    {
+        return $this->webSiteTitle;
+    }
+
+    public function setWebSiteTitle(string $webSiteTitle): self
+    {
+        $this->webSiteTitle = $webSiteTitle;
 
         return $this;
     }
