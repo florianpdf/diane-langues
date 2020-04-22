@@ -35,9 +35,13 @@ class HomePageController extends AbstractController
         $domains = $domainRepository->findAll();
         $references = $referenceRepository->findAll();
         $services = $serviceRepository->findAll();
-        $contact = $contactRepository->findAll();
+        $contacts = $contactRepository->findAll();
         $abouts = $aboutReposiroty->findAll();
         $portFolios = $portFolioRepository->findAll();
+
+        if ($contacts[0]){
+            $contacts = $contacts[0];
+        }
 
         $appLocales = array();
         foreach (explode('|', $this->getParameter('app_locales')) as $locale) {
