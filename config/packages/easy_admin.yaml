@@ -8,8 +8,8 @@ easy_admin:
             - '@EasyAdmin/form/bootstrap_4.html.twig'
             - '@A2lixTranslationForm/bootstrap_4_layout.html.twig'
     entities:
-        Contact:
-            class: App\Entity\Contact
+        WebsiteConfig:
+            class: App\Entity\WebsiteConfig
         PortFolio:
             class: App\Entity\PortFolio
             list:

@@ -32,7 +32,7 @@ class WebsiteConfig
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $phoneNumber;
 
@@ -47,7 +47,7 @@ class WebsiteConfig
     private $facebookLink;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $linkedinLink;
 

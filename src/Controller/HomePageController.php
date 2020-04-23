@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\DomainRepository;
 use App\Repository\ReferenceRepository;
 use App\Repository\ServiceRepository;
-use App\Repository\ContactRepository;
+use App\Repository\WebsiteConfigRepository;
 use App\Repository\PortFolioRepository;
 use App\Repository\AboutRepository;
 use App\Entity\About;
@@ -27,7 +27,7 @@ class HomePageController extends AbstractController
         DomainRepository $domainRepository, 
         ReferenceRepository $referenceRepository,
         ServiceRepository $serviceRepository,
-        ContactRepository $contactRepository,
+        WebsiteConfigRepository $websiteConfigRepository,
         PortFolioRepository $portFolioRepository,
         AboutRepository $aboutReposiroty
         )
@@ -35,13 +35,9 @@ class HomePageController extends AbstractController
         $domains = $domainRepository->findAll();
         $references = $referenceRepository->findAll();
         $services = $serviceRepository->findAll();
-        $contacts = $contactRepository->findAll();
+        $websiteConfig = $websiteConfigRepository->findOneBy([]);
         $abouts = $aboutReposiroty->findAll();
         $portFolios = $portFolioRepository->findAll();
-
-        if (isset($contacts[0])){
-            $contacts = $contacts[0];
-        }
 
         $appLocales = array();
         foreach (explode('|', $this->getParameter('app_locales')) as $locale) {
@@ -52,7 +48,7 @@ class HomePageController extends AbstractController
             'domains' => $domains,
             'references' => $references,
             'services' => $services,
-            'contact' => $contacts,
+            'websiteConfig' => $websiteConfig,
             'portFolios' => $portFolios,
             'abouts' => $abouts,
             'appLocales' => $appLocales

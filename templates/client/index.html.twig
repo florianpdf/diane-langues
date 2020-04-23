@@ -38,23 +38,23 @@
 				</div>
 				<div class="col-md-4">
 					<ul class="list-inline social-buttons">
-						{% if contact.twitterLink is defined %}
+						{% if websiteConfig.twitterLink is defined %}
 						<li class="list-inline-item">
-							<a href="{{ contact.twitterLink }}">
+							<a href="{{ websiteConfig.twitterLink }}">
 								<i class="fab fa-twitter"></i>
 							</a>
 						</li>
 						{% endif %}
-						{% if contact.facebookLink is defined %}
+						{% if websiteConfig.facebookLink is defined %}
 						<li class="list-inline-item">
-							<a href="{{ contact.facebookLink }}">
+							<a href="{{ websiteConfig.facebookLink }}">
 								<i class="fab fa-facebook-f"></i>
 							</a>
 						</li>
 						{% endif %}						
-						{% if contact.linkedinLink is defined %}
+						{% if websiteConfig.linkedinLink is defined %}
 						<li class="list-inline-item">
-							<a href="{{ contact.linkedinLink }}">
+							<a href="{{ websiteConfig.linkedinLink }}">
 								<i class="fab fa-linkedin-in"></i>
 							</a>
 						</li>

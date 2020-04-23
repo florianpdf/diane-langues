@@ -27,6 +27,8 @@ php bin/console doctrine:migration:migrate
 5. Manage assets by running yarn `yarn install` & `yarn encore dev` for dev or `yarn encore prod` for prod  
 *Read more [here](https://symfony.com/doc/current/frontend.html)*  
 
+6. Run following command to create a admin user and add the first configuration for the webstite `php bin/console app:initialize-config`
+
 6. Run Symfony server with `symfony server:start`  
 *Read more [here](https://symfony.com/doc/current/setup/symfony_server.html)* 
 
