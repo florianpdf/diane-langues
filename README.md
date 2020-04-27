@@ -6,19 +6,23 @@ Simple administrable onepage website
 
 1. Clone project
 
-2. Run `composer install`  
+2. Run `composer install` for composer dependency  
 *Read more [here](https://getcomposer.org/)*   
+
+2.1. Run `npm install` for node dependency  
+*Read more [here](https://nodejs.org/en/)*   
 
 3. Create a *.env.local* file and passed your own parameters, bellow the minimum information
 ```yaml
 DATABASE_URL="mysql://your_id:your_password@127.0.0.1:3306/database_name"
-APP_ENV=dev
+APP_ENV=prod
 ```
 *Read more [here](https://symfony.com/doc/current/configuration.html#configuration-based-on-environment-variables)*  
 
 4. Create your and update your database
 ```shell
 php bin/console doctrine:database:create
+php bin/console doctrine:schema:update --force
 php bin/console make:migration
 php bin/console doctrine:migration:migrate
 ```
