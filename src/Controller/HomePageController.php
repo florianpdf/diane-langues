@@ -54,4 +54,15 @@ class HomePageController extends AbstractController
             'appLocales' => $appLocales
         ));
     }
+
+    /**
+     * @Route("/email/{_locale}", 
+     *      name="email", 
+     *      requirements={"_locale":"%app_locales%"},
+     *      defaults={"_locale":"%default_locale%"}
+     * )
+     */
+    public function renderEmail(){
+        return $this->render('email/index.html.twig');
+    }
 }
