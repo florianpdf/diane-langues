@@ -3,7 +3,7 @@ nav.service: Service
 nav.domains: Domains
 nav.portFolio: PortFolio
 nav.about: About
-nav.contact: __nav.contact
+nav.contact: Contact
 portfolio.title: 'My Projects'
 portfolio.closeModal: Close
 contact.title: 'Contact me'
@@ -23,5 +23,4 @@ domain.description: 'Areas where I can help you.'
 domain.conclusion: 'If the subject is not listed, no problem, contact me, we''ll analyze your need'
 service.title: Services
 service.description: 'What I can do for you.'
-app.home.webstiteDescription: null
-app.home.siteTitle: null
+app.home.webstiteDescription: 'My description'

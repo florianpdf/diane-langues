@@ -34,7 +34,7 @@
 				{% endif %}
 				<li class="nav-item dropdown">			
 					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="flag-icon flag-icon-{{flagLocal}}"> </span> {{'nav.' ~ currentLocal|trans}}
+						<span class="flag-icon flag-icon-{{flagLocal}}"> </span> {{currentLocal}}
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown09">
 						
@@ -45,7 +45,7 @@
 								{% else %}
 									{% set flagLocal = locale %}
 								{% endif %}
-								<a class="dropdown-item" href="{{ path('homepage', { '_locale': locale }) }}"><span class="flag-icon flag-icon-{{flagLocal}}"> </span>  {{'nav.' ~ locale|trans}}</a>
+								<a class="dropdown-item" href="{{ path('homepage', { '_locale': locale }) }}"><span class="flag-icon flag-icon-{{flagLocal}}"> </span>  {{locale}}</a>
 							{% endif %}
 						{% endfor %}
 					</div>

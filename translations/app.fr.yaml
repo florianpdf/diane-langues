@@ -22,6 +22,5 @@ domain.title: Domaines
 domain.description: 'Les domaines sur lesquels je peux vous aider'
 domain.conclusion: 'Si le sujet n''est pas listé, pas de problème, contactez moi, on analyse votre besoin'
 service.title: Services
-service.description: 'Ce que je peux faire pour '
-app.home.webstiteDescription: null
-app.home.siteTitle: null
+service.description: 'Ce que je peux faire pour vous'
+app.home.webstiteDescription: 'Ma description'

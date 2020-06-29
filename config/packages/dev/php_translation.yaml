@@ -3,3 +3,5 @@ translation:
         enabled: true
     webui:
         enabled: true
+        allow_create: false
+        allow_delete: false
